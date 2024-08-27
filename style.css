@@ -1,3 +1,8 @@
+
+html {
+  font-size: 16px; /* tamaño predeterminado */
+}
+
 body {
   background-color: #55595c;
   margin: 0; /* resets the default 8px from most browsers */
@@ -6,9 +11,8 @@ body {
 
 #main-header {
   background-color: white;
-  color: #a70184;
   padding: 5px 0; /* top&down left&right */
-  margin: 20px 30px 20px 30px; /* top right down left */
+  margin: 20px 5% 20px 5%; /* top right down left */
 }
 
 #brands-section li {
@@ -22,3 +26,220 @@ body {
 #games-section, #used-section, #brands-section, #access-buttons {
   background-color: lightgray;
 }
+
+
+.card img {
+  width: 120px;
+  height: 180px;
+  /* border: 2px solid black; */
+
+  transition: 0.2s
+}
+
+#main-header h1 span {
+  color: #a70184;
+}
+
+#main-header > span {
+  /* busca el span que sea directamente decendiente de si */
+  text-decoration: underline;
+}
+
+#access-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+#access-buttons button:hover {
+  background-color: #a70184;
+}
+
+#access-buttons button:active {
+  /* background-color: black; */
+  background-color: black;
+  color:#a70184;
+}
+
+.card img:hover {
+  width: 140px;
+  height: 200px;
+}
+
+
+/* #brands-section ul li:first-child {
+  background-color: #cc8dbe;
+} */
+
+#brands-section ul li:nth-child(2) {
+  background-color: #cc8dbe;
+}
+
+#brands-section ul li::marker {
+  /* color: #a70184;
+  font-size: 30px; */
+  content: "👾 ";
+}
+
+#brands-section ul li::first-letter {
+  color: #a70184;
+  /* font-size: 20px; */
+  font-size: 1.2em; /* 120% el tamaño normal que tendría */
+}
+
+#brands-section ul li.sale:hover::after {
+  content: " EN OFERTA";
+}
+
+#access-buttons {
+
+  height: 120px;
+
+  display: flex;
+  flex-direction: row; /* valor predefinido */
+  justify-content: space-evenly; /* eje principal */
+  align-items: center;
+}
+
+.card {
+  background-color: #55595c;
+  width: 200px;
+  height: 380px;
+  border-radius: 10px;
+  color: white;
+}
+
+.games-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 15px; /* separacion general entre todos los elementos */
+  padding-bottom: 15px;
+  margin: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  /* flex-grow: 1; */
+
+  /* BONUS */
+  transition: 0.5s; /* todas las transiciones duren 0.5s*/
+}
+
+.card:hover {
+  flex-grow: 1;
+  background-color: #a70184;
+}
+
+#access-buttons button.top {
+  position: relative;
+  top: 10px
+}
+
+#access-buttons button.bottom {
+  position: relative;
+  /* bottom: 10px */
+  top: -10px; /* Mismo resultado que bottom: 10px */
+}
+
+#confetti {
+  position: absolute; /* posicionarlo en relacion al header */
+  top: 5px;
+  right: 5px;
+  margin: 0;
+}
+
+#main-header {
+  position: relative; /* esto me permite positionar elementos internos de absoluta en relacion a este contenedor */
+}
+
+#access-buttons {
+  /* position: fixed; */
+  position: sticky;
+  top: 0; /* se comporta como fixed cuando en la vista, llegue a este punto */
+}
+
+
+/* UNITS */ 
+
+h1 {
+  font-size: 3rem; /* 300% de font size del html */
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+button span {
+  font-size: 0.8rem;
+}
+
+
+
+/* MEDIA QUERIES */
+
+/* a partir de acá todos los estilos aplican a todos los dispositivos */
+/* la vista hasta este punto es optimizada para dispositivos mobiles */
+
+@media (width > 600px ) {
+  
+  /* estos estilos aplican solo para tablet */
+  body {
+    background-color: darkred;
+  }
+
+  #access-buttons {
+    justify-content: center;
+    gap: 5px
+  }
+
+  html {
+    font-size: 20px;
+  }
+
+}
+
+@media (width > 1030px) {
+  
+  /* estos estilos aplican solo para ordenador */
+  body {
+    background-color: darkred;
+  }
+
+  #access-buttons {
+    justify-content: space-evenly;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .games-container {
+    gap: 40px;
+  }
+
+  #responsive-container {
+    display: flex; 
+  }
+
+  html {
+    font-size: 12px;
+  }
+
+}
+
+
+
